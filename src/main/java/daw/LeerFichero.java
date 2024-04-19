@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 /**
  *
@@ -25,6 +26,15 @@ public class LeerFichero {
                 mapeador.getTypeFactory().constructCollectionType(ArrayList.class, Donantes.class)); 
         
         return catalogo;
+        
+        //DEBERÍA DE HABER SIDO ASÍ:
+//        try {
+//            ArrayList<Donantes> catalogo = mapeador.readValue(new File(ruta),
+//                mapeador.getTypeFactory().constructCollectionType(ArrayList.class, Donantes.class)); 
+//            return Optional.of(catalogo);
+//        } catch (IOException ex) {
+//            return Optional.empty();
+//        }
         
     }
 }
